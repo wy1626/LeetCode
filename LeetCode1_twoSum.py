@@ -5,17 +5,32 @@
 # 思路：暴力枚举
 # 时间复杂度：O(n^2)
 # 空间复杂度：O(1)
-# def twoSum(nums,target):
-#     n = len(nums)
-#     for i in range(n):
-#         for j in range(i+1,n):
-#             if nums[i]+nums[j] == target:
-#                  return [i,j]
+def twoSum(nums,target):
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1,n):
+            if nums[i]+nums[j] == target:
+                 return [i,j]
+    return []
 
-# l = [2,7,11,15]
-# t = 9
-# print(twoSum(l,t))
+nums1 = [11,2,7,15]
+nums2 = [11,1,7,15]
+target = 9
+print(twoSum(nums1,target))
+print(twoSum(nums2,target))
 
+# 思路：哈希表
+def twoSum2( nums, target):
+    tmp = {}
+    for i,m in enumerate(nums):
+        if target-m in tmp:
+            return [tmp[target-m],i]
+        else:
+            tmp[m] = i
+    return []
 
-nums = [2,7,1,5]
-print(enumerate(nums))
+nums1 = [11,15,2,7]
+nums2 = [11,15,1,7]
+target = 9
+print(twoSum2(nums1,target))
+print(twoSum2(nums2,target))
